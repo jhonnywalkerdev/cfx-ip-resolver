@@ -1,7 +1,7 @@
 <h1> CFX IP Resolver </h1>
 Resolve FiveM server IP adress by cfx.re connection link.
 
-This python program is a simple code to resolve any fivem server ip by cfx adress.
+This python program is a simple code to resolve any fivem server ip by cfx adress using two free API.
 
 # How to use?
 
