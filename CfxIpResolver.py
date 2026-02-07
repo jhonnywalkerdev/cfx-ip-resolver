@@ -4,10 +4,18 @@ import os
 
 request = None
 
+def _normalize_cfx_link(cfxlink):
+    """Extrai o ID do servidor de qualquer formato: cfx.re/join/ymkax5, https://cfx.re/join/ymkax5, ou só ymkax5"""
+    s = cfxlink.strip()
+    match = re.search(r'join/([a-zA-Z0-9]+)', s, re.IGNORECASE)
+    if match:
+        return match.group(1)
+    return s
+
 class fivemServer():
     table = dict()
     def __init__(self,cfxlink):
-        self.cfxlink = cfxlink
+        self.cfxlink = _normalize_cfx_link(cfxlink)
 
     def getIp(self):
         request = requests.get(f"https://cfx.re/join/{self.cfxlink}")
